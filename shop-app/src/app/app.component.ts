@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'shop-app';
+  feature = 'recipe';
+  serverElements =  [{name: 'test',content: 'this isjghj'}];
+
+  serverAdded(event) {
+    this.serverElements.push({
+      name: event.name,
+      content: event.content
+    });
+  }
+
+  onNavigate(feature : string) {
+    this.feature = feature;
+  }
 }
