@@ -1,14 +1,14 @@
-/*   Primitive Data Types  
+/*   Primitive Data Types  (Call by value)
      integer => number 2 to power 54
      BigInt => big number
      Null => absence of object, Object.getPrototypeOf(), Object.create() returns null
      undefined => absence of value , return statement with no value returns undefined ,Array.prototype.find return undefined when no element found
      string => collection of chracters, immutable (once you created no way to modify)
      symbol => unique , immutable primitive value , purpose to create unique property keys that are gurraned not to clash any other key 
-     boolean => 
+     boolean => true or false
 
-     Non- Primitive Data type 
-     object 
+     Non- Primitive Data type (Call by Reference)
+     object , array , function (return type objects , for function => object function)
 */
 
 let name = true; // number
