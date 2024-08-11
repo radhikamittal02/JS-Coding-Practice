@@ -12,7 +12,36 @@ function checkConst () {
 }
 
 
-// var keyword => functional and global scope
+/* var keyword => functional and global scope
+   var was the default statement to declare a variable until ES2015. It creates a function-scoped 
+   variable that can be reassigned and redeclared. However, due to its lack of block scoping, it can 
+   cause issues if the variable is being reused in a loop that contains an asynchronous
+    callback because the variable will continue to exist outside of the block scope. */
+
+    /* for (var i = 0; i < 10; i++) {
+        setTimeout(() => {
+          // logs `10` ten times
+          console.log(i)
+        })
+      }
+
+
+      for (var i = 0; i < 10; i++) {
+        // Passed as an argument will use the value as-is in
+        // that point in time
+        setTimeout(console.log, 0, i)
+      }  */
+
+      for (var i = 0; i < 10; i++) {
+        // Create a new function scope that will use the value
+        // as-is in that point in time
+        ;(i => {
+          setTimeout(() => {
+            console.log("here", i);
+          })
+        })(i)
+      } 
+      
 
 var a = 1;
 {
@@ -60,12 +89,7 @@ a_test = b_test;
    
    z();
    
-   console.log('outside function', m)
+   //console.log('outside function', m)
 
    // https://github.com/Chalarangelo/30-seconds-of-interviews/blob/master/questions/var-let-const.md 
-   for (var i = 0; i < 10; i++) {
-    setTimeout(() => {
-      // logs `10` ten times
-      console.log(i)
-    })
-  }
+   
